@@ -4,18 +4,18 @@ from datetime import datetime, timedelta
 import pandas as pd
 
 # Load student information from an external Excel sheet
-student_info_file = "testt.xlsx"  # Replace with your file path
+student_info_file = "XXXXX.xlsx"  # Replace with your file path
 student_info = pd.read_excel(student_info_file)
 
 # Define the date range for two months
-start_date = datetime(2015, 12, 21)  ##yyyy, m, d
-end_date = datetime(2016, 2, 20)    ##yyyy, m, d
+start_date = datetime(2015, 12, 21)  ##YYY, MM, DD
+end_date = datetime(2016, 2, 20)     ##YYYY, MM, DD
 
 # Define the time range for Time IN and Time OUT
-time_in_start =  datetime(2015, 12, 21, 8, 00)     #start_date
-time_in_end =    datetime(2015, 12, 21, 8, 14)        #start_date
-time_out_start = datetime(2015, 12, 21, 18, 11)   #start_date
-time_out_end =   datetime(2015, 12, 21, 18, 31)     #start_date
+time_in_start =  datetime(2015, 12, 21, 8, 00)    #start_date from line 11
+time_in_end =    datetime(2015, 12, 21, 8, 14)    #start_date from line 11
+time_out_start = datetime(2015, 12, 21, 18, 11)    #start_date from line 11
+time_out_end =   datetime(2015, 12, 21, 18, 31)    #start_date from line 11
 
 # Create a new Excel workbook to store attendance records
 workbook = openpyxl.Workbook()
@@ -41,8 +41,8 @@ for date in pd.date_range(start=start_date, end=end_date):
         student_name = student["Student Name"]
 
         # Generate random time within the specified ranges
-        time_in = time_in_start + timedelta(seconds=random.randint(0, 840))  # Random time within 30 minutes
-        time_out = time_out_start + timedelta(seconds=random.randint(0, 1200))  # Random time within 1 hour
+        time_in = time_in_start + timedelta(seconds=random.randint(0, 840))  # Seconds time
+        time_out = time_out_start + timedelta(seconds=random.randint(0, 1200))  #Seconds time
 
         # Format the date and day
         attendance_date = date.strftime('%Y-%m-%d')
@@ -63,4 +63,4 @@ for date in pd.date_range(start=start_date, end=end_date):
         serial_number += 1
 
 # Save the entire Excel workbook
-workbook.save("Batch_4001.xlsx")
+workbook.save("Batch1.xlsx")  ##Excel name automatically create by code
